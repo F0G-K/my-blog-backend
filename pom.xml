@@ -116,6 +116,13 @@
             <optional>true</optional>
         </dependency>
 
+        <!-- jsoup:评论 UGC 的 XSS 净化(Spring Boot BOM 不托管,显式版本) -->
+        <dependency>
+            <groupId>org.jsoup</groupId>
+            <artifactId>jsoup</artifactId>
+            <version>1.18.3</version>
+        </dependency>
+
         <!-- 测试 -->
         <dependency>
             <groupId>org.springframework.boot</groupId>

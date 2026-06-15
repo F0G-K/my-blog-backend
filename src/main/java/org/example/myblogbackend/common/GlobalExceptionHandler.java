@@ -63,6 +63,13 @@ public class GlobalExceptionHandler {
         return Result.fail(ResultCode.PARAM_ERROR, "缺少参数: " + e.getParameterName());
     }
 
+    /** 非法参数(如未知的状态字符串经枚举映射抛出) */
+    @ExceptionHandler(IllegalArgumentException.class)
+    @ResponseStatus(HttpStatus.BAD_REQUEST)
+    public Result<Void> handleIllegalArgument(IllegalArgumentException e) {
+        return Result.fail(ResultCode.PARAM_ERROR, e.getMessage());
+    }
+
     /** 无权限(Spring Security 抛出) */
     @ExceptionHandler(AccessDeniedException.class)
     @ResponseStatus(HttpStatus.FORBIDDEN)
